@@ -22,7 +22,7 @@ public class AgregarProductoStepDefinitions {
 
     @When("selecciona el producto y lo agrega al carrito de compras")
     public void selecciona_el_producto_y_lo_agrega_al_carrito_de_compras(List<Producto> listProducto) throws InterruptedException {
-        theActorCalled("Usuario").attemptsTo(BuscarProducto.conProducto(listProducto));
+        theActorInTheSpotlight().attemptsTo(BuscarProducto.conProducto(listProducto));
     }
 
     @Then("el producto queda pendiente por confirmacion de pago")

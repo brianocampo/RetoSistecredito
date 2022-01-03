@@ -11,11 +11,11 @@ import starter.ui.productUI;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class SeleccionarProductoTask implements Task {
+public class BuscarProducto implements Task {
 
     private final String producto;
 
-    public SeleccionarProductoTask (String producto){
+    public BuscarProducto(String producto){
         this.producto=producto;
     }
 
@@ -27,8 +27,8 @@ public class SeleccionarProductoTask implements Task {
         actor.attemptsTo(Click.on(productUI.BUTTON_AGREGAR_BOLSA));
     }
 
-    public static Performable prueba(String producto){
-        return instrumented(SeleccionarProductoTask.class,producto);
+    public static Performable conProducto(String producto){
+        return instrumented(BuscarProducto.class,producto);
     }
 
 }

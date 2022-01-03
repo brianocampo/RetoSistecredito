@@ -5,12 +5,13 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+import net.serenitybdd.screenplay.questions.WebElementQuestion;
 import starter.navigation.NavigateTo;
-import starter.question.SeleccionarProductoQuestion;
-import starter.task.SeleccionarProductoTask;
+import starter.task.BuscarProducto;
+import starter.ui.productUI;
+
 import java.util.List;
 import static net.serenitybdd.screenplay.actors.OnStage.*;
 
@@ -29,11 +30,11 @@ public class AgregarProductoStepDefinitions {
     public void selecciona_el_producto_y_lo_agrega_al_carrito_de_compras(DataTable dataTable) throws InterruptedException {
         List<String> listProductos = dataTable.asList(String.class);
         String producto = listProductos.get(1);
-        theActorCalled("Usuario").attemptsTo(SeleccionarProductoTask.prueba(producto));
+        theActorCalled("Usuario").attemptsTo(BuscarProducto.conProducto(producto));
     }
 
     @Then("el producto queda pendiente por confirmacion de pago")
     public void el_producto_queda_pendiente_por_confirmacion_de_pago() {
-        theActorCalled("usuario").should(GivenWhenThen.seeThat(SeleccionarProductoQuestion.resultado()));
+        WebElementQuestion.the(productUI.BUTTON_SEGUIR_COMPRANDO).answeredBy(theActorInTheSpotlight()).isPresent();
     }
 }

@@ -35,6 +35,6 @@ public class AgregarProductoStepDefinitions {
 
     @Then("el producto queda pendiente por confirmacion de pago")
     public void el_producto_queda_pendiente_por_confirmacion_de_pago() {
-        WebElementQuestion.the(productUI.BUTTON_SEGUIR_COMPRANDO).answeredBy(theActorInTheSpotlight()).isPresent();
+        WebElementQuestion.the(productUI.BUTTON_SEGUIR_COMPRANDO).answeredBy(theActorInTheSpotlight()).isClickable();
     }
 }

@@ -7,8 +7,6 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import starter.ui.indexUI;
 import starter.ui.productUI;
-
-
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class BuscarProducto implements Task {
